@@ -1,0 +1,28 @@
+FUNCTION dot_product(v1,v2 : ARRAY_OF FLOAT) : FLOAT
+VAR
+    ps:FLOAT=0;
+BEGIN
+    IF(v1.length<>v2.length)THEN
+    Write ("You can't calculate the scalar product,Please enter 2 arryas of the same length!")
+    ELSE
+        FOR i FROM 0 TO v1.length-1 DO
+            ps=ps+v1[i]*v2[i];
+        END_FOR
+    RETURN ps ;
+END 
+
+ALGORITHM scalarProduct
+VAR
+    tab:ARRAY_OF ARRAY
+
+BEGIN
+    FOR i FROM 0 TO tab.length-2   DO
+        FOR j FROM i+1 TO tab.length-1  DO
+            ps:=dot_product(tab[i],tab[j])
+            IF (ps=0) THEN
+                Write (tab[i]," And ",tab[j],"are orthogonal");
+            END_IF
+        END_FOR
+
+    END_FOR
+END
